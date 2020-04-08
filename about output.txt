@@ -1,0 +1,16 @@
+After you start the game:
+
+the aim is to guess the correct word.
+if the letter is not in the word the the letter turns red
+and a further stage of the hangman is drawn (left upper corner)
+
+if the is in the word it is displayed in the blank. The letter gets disabled.
+
+
+if you get the word correct before the hangman is drawn you win the game else you lose.
+
+
+The new game button would do what a new game button does....Start a new game :P
+
+
+That's it..... i hope you enjoy the game .
