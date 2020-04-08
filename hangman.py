@@ -6,8 +6,9 @@ import random
 window=Tk()
 window.title("Hangman")
 window.config(bg='Grey')
-
-BUTTONS =[ ]
+#list containing all the buttons from A to Z
+BUTTONS =[ ] 
+#download zip file and unzip in the same folder in which code exists do change the path of images in the code
 photos = [PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang0.png"),PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang1.png"),
 PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang2.png"),PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang3.png"),
 PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang4.png"),PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang5.png"),
@@ -15,6 +16,7 @@ PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang6.png"),PhotoI
 PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang8.png"),PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang9.png"),
 PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang10.png"),PhotoImage(file="C:\\Users\\Bharat\\Desktop\\Hangman\\images\\hang11.png")]
 
+#words() randomly selects a list and a word from a respective list and then words() returns name of list and a word
 def words():
 	global name
 	no=random.randint(1,4)
@@ -34,15 +36,17 @@ def words():
 		name='Flower'
 		Flowers=['HIBISCUS','JASMINE','LILY','LOTUS','MARIGOLD','MORNINGGLORY','TULIP','ROSE','SUNFLOWER','LAVENDER','CHERRYBLOSSOM']
 		return random.choice(Flowers),name
-
+# w_disable disables the button in green color if the letter is in the word
 def w_disable(letter):
 	for i in BUTTONS:
 		if(i['text'] == letter):
 			return i.config(bg='ForestGreen',state=DISABLED)
+# n_disable disables the button in red color if the letter is not in the word
 def n_disable(letter):
 	for i in BUTTONS:
 		if(i['text'] == letter):
 			return i.config(bg='FireBrick',state=DISABLED)
+#enables all disabled buttons
 def enable():
 	for i in BUTTONS:
 		if(i['state'] == 'disabled'):
@@ -57,7 +61,7 @@ def newGame():
 	lblWord.set(" ".join("_"*len(newGame.the_word)))
 	Label(window,text=name,bg='Azure',font=("Consolas 15 bold"),width=10).grid(row=1,column=4,columnspan=6,padx=10)
 	enable()
-
+#checks if the letter is in the word or not
 def guess(letter):
 	flag=0
 	global numberOfGuesses
